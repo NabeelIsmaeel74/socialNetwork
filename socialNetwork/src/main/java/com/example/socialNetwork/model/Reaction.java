@@ -8,24 +8,19 @@ import jakarta.persistence.*;
 
 public class Reaction {
 
-    @Id
-    private  Long id ;
 
     private  int type ;
 
+
+    @Id
     @ManyToOne
     @JoinColumn(name = "content_id")
-    @MapsId
     private Content contentID ;
 
 
+    @Id
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @MapsId
     private Users userID ;
-
-
-
-
 
 }

@@ -10,14 +10,9 @@ import java.util.Date;
 
 public class Reply {
 
-
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id ;
-
     @OneToOne
     @JoinColumn(name = "reply_id")
-    @MapsId
     private Content replyID ;
 
     private String content ;

@@ -9,13 +9,10 @@ import java.util.Date;
 
 public class Post {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id ;
 
+    @Id
     @OneToOne
     @JoinColumn(name = "Post_id")
-    @MapsId
     private Content PostID ;
 
     private  String content ;

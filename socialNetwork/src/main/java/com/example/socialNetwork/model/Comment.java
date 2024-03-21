@@ -10,13 +10,10 @@ import java.util.Date;
 
 public class Comment {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private  Long id ;
 
+    @Id
     @OneToOne
     @JoinColumn(name = "Comment_id")
-    @MapsId
     private Content PostID ;
 
     private  String content ;
