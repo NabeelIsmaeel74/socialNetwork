@@ -1,7 +1,11 @@
 package com.example.socialNetwork.model;
 
 
+import com.example.socialNetwork.repo.ContentRepo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,19 +14,47 @@ import java.util.List;
 @Entity
 public class Users {
 
+
     @Id
     private  Long userId ;
 
-    private String hashPass ;
+    private String username ;
+
+   public Users () {}
+
+    public Users(Long userId, String username) {
+        this.userId = userId;
+        this.username = username;
+    }
+    public Users( String username) {
+        this.username = username;
+    }
 
 
-    @OneToMany(mappedBy = "user1" , fetch = FetchType.LAZY)
-    private List<Relationships> relationships = new ArrayList<>() ;
 
 
-    @OneToMany(cascade = CascadeType.ALL , fetch = FetchType.LAZY , mappedBy = "user")
-    private List<Content> contentList = new ArrayList<>() ;
+    public Long getUserId() {
+        return userId;
+    }
 
-    @OneToMany(mappedBy = "userID")
-    List<Reaction> Reactions  = new ArrayList<>() ;
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }
